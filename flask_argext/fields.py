@@ -16,6 +16,10 @@ from .exc import (
     ArgError,
 )
 
+from .const import (
+    ArgErrorCode,
+)
+
 
 logger = logging.getLogger(__name__)
 
@@ -64,7 +68,7 @@ class IntField(BaseField):
             self._val = self._fmt(val) if val is not None else val
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -74,7 +78,7 @@ class IntField(BaseField):
             return self._fmt(self._val)
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -84,7 +88,7 @@ class IntField(BaseField):
             self._val = self._fmt(val)
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -101,7 +105,7 @@ class FloatField(BaseField):
             self._val = self._fmt(val) if val is not None else val
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -111,7 +115,7 @@ class FloatField(BaseField):
             return self._fmt(self._val)
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -121,7 +125,7 @@ class FloatField(BaseField):
             self._val = self._fmt(val)
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -154,7 +158,7 @@ class StringField(BaseField):
             self._val = self._fmt(val) if val is not None else val
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -164,7 +168,7 @@ class StringField(BaseField):
             return self._fmt(self._val)
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -174,7 +178,7 @@ class StringField(BaseField):
             self._val = self._fmt(val)
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -215,7 +219,7 @@ class ListField(BaseField):
             return return_val
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -228,7 +232,7 @@ class ListField(BaseField):
                 self._val = [self._inside_fmt(item) for item in self._val]
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -263,7 +267,7 @@ class DateField(BaseField):
             self._val = self._fmt(val) if val is not None else val
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -275,7 +279,7 @@ class DateField(BaseField):
             return return_val
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )
@@ -285,7 +289,7 @@ class DateField(BaseField):
             self._val = self._fmt(val)
         except ArgFormatError:
             raise ArgError(
-                608,
+                ArgErrorCode['ARGUMENT_FORMAT_EXC'],
                 "{}() invalid argument format: {}".
                 format(self._fmt.__name__, self._val)
             )

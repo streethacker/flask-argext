@@ -22,6 +22,10 @@ from .exc import (
     ArgError,
 )
 
+from .const import (
+    ArgErrorCode,
+)
+
 
 logger = logging.getLogger(__name__)
 
@@ -42,7 +46,7 @@ class ArgMeta(object):
 
         if not essential_args.issubset(set(kwargs)):
             raise ArgError(
-                607,
+                ArgErrorCode['ARGUMENT_MISSING_EXC'],
                 '{}() required argument not found: {}'.
                 format(func_name, list(essential_args - set(kwargs)))
             )
